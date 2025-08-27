@@ -29,6 +29,19 @@ while True:
         valor = float(valor_correto) 
         print("Valor cadastrado com sucesso!")
         break
-    except ValueError: print("Valor invalido, digite novamente.")
+    except ValueError: print("Valor inválido, digite novamente.")
 
 #Margem de lucro.
+
+while True:
+    try:
+        lucro_texto = input("Digite a porcentagem de lucro: ")
+        lucro_correto = lucro_texto.replace(',','.')
+        lucro = float(lucro_correto)
+        print("Valor cadastrado com sucesso")
+        break
+    except ValueError: print("Valor inválido, digite novamente.")
+
+#Calculos de venda com ICMS de São Paulo 18%.
+
+
