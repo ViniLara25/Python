@@ -45,16 +45,26 @@ while True:
 #Calculos de venda com ICMS de São Paulo 18%.
 
 lucro_final = lucro/100
+
 imposto_icms = 0.18
+
 valor_lucro = valor*lucro_final
 valor_final = valor+valor_lucro
+
 valor_final_imposto = valor_final*imposto_icms
 valor_produto = valor_final-valor_final_imposto
-resultado = valor_produto-valor
 
-print(f"\nItem cadastrado: {produto}. \nValor pago pelo produto: R${valor}. \nMargem de lucro: {lucro}%. \nImposto ICMS sobre a venda do produto no estado de São Paulo: {imposto_icms*100}%. \n\nValor final de venda do produto: R${valor_produto:,.2f}")
+resultado = valor_produto-valor
+valor_debitado_icms = valor_final*imposto_icms
+lucro_real_porcentagem = (valor_produto*100)/(valor)-100
+
+print(f"\nItem cadastrado: {produto}. \nValor pago pelo produto: R${valor}. \nMargem de lucro: {lucro:,.2f}%. \nImposto ICMS sobre a venda do produto no estado de São Paulo: {imposto_icms*100}%. \n\nPreço de venda sugerido: R${valor_final:,.2f} \n\nValor do ICMS descontado: R${valor_debitado_icms:,.2f} \n\nValor líquido após ICMS: R${valor_produto:,.2f}")
+
+print(f"")
 
 if valor_produto <= valor:
-    print(f"\nVocê terá prejuizo com este item de: R${resultado:,.2f}")
+    print(f"Você terá prejuizo com este item de: R${resultado:,.2f}")
 else:
-    print(f"\nVocê tera ganho com a venda de: R${resultado:,.2f}")
+    print(f"Você terá lucro com a venda de: R${resultado:,.2f}")
+
+print(f"\nPorcentagem real de lucro é de: {lucro_real_porcentagem:,.2f}%")
